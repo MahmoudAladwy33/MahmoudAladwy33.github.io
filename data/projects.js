@@ -70,22 +70,22 @@ var PROJECTS_DATA = [
     id: "eventhub",
     title: "EventHub",
     tagline: "Discover and manage events seamlessly",
-    category: "ios",
+    category: "flutter",
     featured: false,
-    badges: ["Swift", "CoreData", "Firebase"],
+    badges: ["Flutter", "BLoC", "Retrofit"],
     githubUrl: "https://github.com/MahmoudAladwy33/EventHub",
     coverImage: "assets/projects/eventhub/813shots_so.png",
-    techStack: ["Swift", "UIKit", "Firebase", "CoreData", "REST API"],
-    overview: "EventHub is a comprehensive event management application designed to help users discover, book, and organize events.",
+    techStack: ["Flutter", "Dart", "BLoC", "Dio", "Retrofit"],
+    overview: "A Flutter-based event management application designed to help users discover, book, and organize events.",
     keyHighlights: [
-      "Architected a scalable event discovery engine",
-      "Integrated real-time notifications for event updates",
-      "Implemented a seamless booking and ticketing flow"
+      "Architected a scalable event discovery engine.",
+      "Integrated remote API data fetching via Dio and Retrofit.",
+      "Implemented a seamless state management flow using BLoC."
     ],
     architecture: {
-      pattern: "MVVM / Clean Architecture",
-      dataFlow: "UI -> ViewModel -> Repository -> Network/Local",
-      keyDecisions: "Used CoreData for offline caching to improve performance during network unreliability."
+      pattern: "Clean Architecture / BLoC",
+      dataFlow: "UI -> BLoC -> Repository -> Network (Dio/Retrofit)",
+      keyDecisions: "Adopted BLoC for predictable state management and Retrofit for type-safe API calls."
     }
   },
   {
@@ -94,20 +94,20 @@ var PROJECTS_DATA = [
     tagline: "AI-powered infant cry analysis",
     category: "flutter",
     featured: false,
-    badges: ["Flutter", "Dart", "AI/ML"],
+    badges: ["Flutter", "BLoC", "Firebase"],
     githubUrl: "https://github.com/Advanced-Infant-Care-Technology/Flutter",
     coverImage: "assets/projects/carenest/WhatsApp Image 2026-09-14 at 10.43.54 (1).jpeg",
-    techStack: ["Flutter", "Dart", "Python", "TensorFlow", "FastAPI"],
-    overview: "An innovative health-tech application that leverages machine learning to analyze infant cries and determine their needs.",
+    techStack: ["Flutter", "Dart", "BLoC", "Firebase", "Dio", "Retrofit"],
+    overview: "A Flutter-based healthcare application leveraging Firebase and custom APIs for infant care management.",
     keyHighlights: [
-      "Integrated a custom TensorFlow model for audio classification",
-      "Built a cross-platform mobile interface using Flutter",
-      "Developed a real-time audio processing pipeline"
+      "Built a cross-platform mobile interface using Flutter.",
+      "Integrated Firebase for real-time data sync and authentication.",
+      "Developed robust remote networking layer using Dio."
     ],
     architecture: {
       pattern: "BLoC Pattern",
-      dataFlow: "UI -> BLoC -> Audio Service -> ML API",
-      keyDecisions: "Offloaded complex audio inference to a dedicated Python backend to preserve mobile battery life."
+      dataFlow: "UI -> BLoC -> Repository -> API/Firebase",
+      keyDecisions: "Decoupled the presentation layer using BLoC to ensure scalability."
     }
   },
   {
@@ -116,109 +116,108 @@ var PROJECTS_DATA = [
     tagline: "Accurate weather forecasting at your fingertips",
     category: "ios",
     featured: false,
-    badges: ["Swift", "SwiftUI", "Combine"],
+    badges: ["Swift", "UIKit/SwiftUI"],
     githubUrl: "https://github.com/MahmoudAladwy33/Ghyom_IOS",
     coverImage: "assets/projects/ghyom-ios/736shots_so.png",
-    techStack: ["Swift", "SwiftUI", "Combine", "CoreLocation", "Weather API"],
-    overview: "A native iOS application providing real-time weather updates and forecasts. It delivers precise localized weather data with an elegant and intuitive user interface.",
+    techStack: ["Swift", "UIKit", "SwiftUI"],
+    overview: "A native iOS application providing weather updates and forecasts.",
     keyHighlights: [
-      "Built a reactive UI using SwiftUI and Combine",
-      "Integrated CoreLocation for precise local weather tracking",
-      "Designed dynamic weather animations based on current conditions"
+      "Designed dynamic weather views based on current conditions.",
+      "Structured for future API integration."
     ],
     architecture: {
-      pattern: "MVVM",
-      dataFlow: "View -> ViewModel -> Weather Service",
-      keyDecisions: "Adopted Combine for handling asynchronous API calls and state updates seamlessly."
+      pattern: "MVC/MVVM",
+      dataFlow: "View -> Controller/ViewModel",
+      keyDecisions: "Native Swift implementation focusing on performance."
     }
   },
   {
     id: "caredent",
     title: "CareDent",
     tagline: "Comprehensive dental care management",
-    category: "flutter", // Assuming Flutter/Android based on Kotlin in subagent, but let's classify broadly
+    category: "flutter",
     featured: false,
-    badges: ["Kotlin", "Room", "Booking"],
+    badges: ["Flutter", "BLoC", "Retrofit"],
     githubUrl: "https://github.com/MahmoudAladwy33/CareDent",
     coverImage: "assets/projects/caredent/WhatsApp Image 2026-09-14 at 10.43.54.jpeg",
-    techStack: ["Kotlin", "Android SDK", "Room", "Retrofit", "Coroutines"],
-    overview: "A dental clinic management application that connects patients with dental professionals. It simplifies appointment booking, medical record tracking, and follow-up care.",
+    techStack: ["Flutter", "Dart", "BLoC", "Dio", "Retrofit"],
+    overview: "A dental clinic management application built with Flutter that simplifies appointment booking and medical record tracking.",
     keyHighlights: [
-      "Developed a secure patient record management system",
-      "Implemented a calendar-based appointment booking system",
-      "Integrated automated push notifications for appointment reminders"
+      "Developed a responsive patient interface with Flutter.",
+      "Implemented networking layer utilizing Retrofit and Dio.",
+      "Managed complex UI states seamlessly with BLoC."
     ],
     architecture: {
-      pattern: "MVVM with Clean Architecture",
-      dataFlow: "Fragment -> ViewModel -> UseCase -> Repository",
-      keyDecisions: "Used Room database for secure local storage of sensitive patient schedules."
+      pattern: "BLoC Pattern",
+      dataFlow: "UI -> BLoC -> API Client",
+      keyDecisions: "Used Retrofit for generating type-safe API clients in Dart."
     }
   },
   {
     id: "yummy",
     title: "Yummy",
     tagline: "Discover delicious recipes and food delivery",
-    category: "ios",
+    category: "android",
     featured: false,
-    badges: ["Swift", "UIKit", "Delivery"],
+    badges: ["Android", "Java", "Room DB"],
     githubUrl: "https://github.com/MahmoudAladwy33/Yummy",
     coverImage: "assets/projects/yummy/WhatsApp Image 2026-09-14 at 10.43.54 (3).jpeg",
-    techStack: ["Swift", "UIKit", "Kingfisher", "Alamofire", "AutoLayout"],
-    overview: "A food discovery and delivery application offering a rich catalog of recipes and local restaurant options. It focuses on providing a visually appealing and smooth browsing experience.",
+    techStack: ["Java", "Android SDK", "Retrofit", "Room DB", "RxJava3", "Navigation Component"],
+    overview: "A robust native Android recipe and food discovery app utilizing RxJava for reactive programming and Room for local database management.",
     keyHighlights: [
-      "Architected a scalable modular UI for recipe browsing",
-      "Integrated efficient image caching for fast load times",
-      "Built a robust cart and checkout system"
+      "Architected a scalable native UI using Navigation Component.",
+      "Integrated Room DB with DAOs for local caching of meals.",
+      "Utilized RxJava3 and Retrofit for reactive network calls."
     ],
     architecture: {
-      pattern: "MVC",
-      dataFlow: "Controller -> Network Manager -> Model",
-      keyDecisions: "Utilized Kingfisher for aggressive image caching to ensure smooth scrolling in image-heavy feeds."
+      pattern: "MVVM / Repository Pattern",
+      dataFlow: "Fragment -> ViewModel -> Repository -> Room/Retrofit",
+      keyDecisions: "Adopted Room DB and RxJava3 for highly responsive, reactive local caching."
     }
   },
   {
     id: "ghyom",
     title: "Ghyom",
-    tagline: "Cross-platform weather forecasting app",
-    category: "flutter",
+    tagline: "Modern Android weather forecasting app",
+    category: "android",
     featured: false,
-    badges: ["Flutter", "Dart", "Provider"],
+    badges: ["Kotlin", "Compose", "Koin"],
     githubUrl: "https://github.com/MahmoudAladwy33/Ghyom",
     coverImage: "assets/projects/ghyom/WhatsApp Image 2026-09-14 at 10.43.54 (2).jpeg",
-    techStack: ["Flutter", "Dart", "Provider", "Dio", "Geolocator"],
-    overview: "A cross-platform version of the Ghyom weather application. It ensures consistent features and performance across both iOS and Android platforms.",
+    techStack: ["Kotlin", "Jetpack Compose", "Koin (DI)", "Retrofit", "Room DB", "Navigation Compose"],
+    overview: "A modern native Android weather application using the latest Jetpack Compose UI toolkit and offline caching via Room.",
     keyHighlights: [
-      "Migrated native application logic to a unified Flutter codebase",
-      "Implemented robust state management using Provider",
-      "Integrated cross-platform geolocation services"
+      "Built a fully declarative UI with Jetpack Compose.",
+      "Implemented Dependency Injection using Koin.",
+      "Integrated Room DB for offline weather data persistence."
     ],
     architecture: {
-      pattern: "Provider State Management",
-      dataFlow: "Widget -> Provider -> API Client",
-      keyDecisions: "Chose Provider for lightweight and scalable state management across the app."
+      pattern: "MVVM with Clean Architecture",
+      dataFlow: "Compose UI -> ViewModel -> Repository -> Network/Database",
+      keyDecisions: "Adopted Jetpack Compose and Koin for modern, scalable, and highly testable Android development."
     }
   },
   {
     id: "xo-game",
     title: "XO Game",
     tagline: "Multiplayer Tic-Tac-Toe with real-time sync",
-    category: "flutter", // Classified broadly
+    category: "desktop",
     featured: false,
-    badges: ["Java", "Socket.IO", "Gaming"],
+    badges: ["JavaFX", "Sockets", "Gaming"],
     githubUrl: "https://github.com/OmarRamadan20/Client-XO-Game",
     coverImage: "assets/projects/xo-game/Screenshot 2026-09-14 at 3.01.36 PM.png",
     videoUrl: "assets/projects/xo-game/WhatsApp Video 2026-09-14 at 10.41.48.mp4",
-    techStack: ["Java", "Android SDK", "Node.js", "Socket.IO", "Express"],
-    overview: "A real-time multiplayer Tic-Tac-Toe game featuring a dedicated client and server architecture. It allows players to compete online with low latency synchronization.",
+    techStack: ["Java", "JavaFX", "Java Sockets (java.net)"],
+    overview: "A real-time multiplayer Tic-Tac-Toe game featuring a JavaFX client and a dedicated Java Server Architecture. It allows players to compete online with low latency synchronization.",
     keyHighlights: [
-      "Architected a real-time game state synchronization engine",
-      "Developed a custom Node.js backend using Socket.IO",
-      "Implemented matchmaking and player session management"
+      "Architected a real-time game state synchronization engine using raw Sockets.",
+      "Developed a custom multithreaded Java Server.",
+      "Built a responsive desktop GUI utilizing JavaFX."
     ],
     architecture: {
-      pattern: "Client-Server / Event-Driven",
-      dataFlow: "Client UI -> Socket Client -> Socket Server -> Game Logic",
-      keyDecisions: "Used Socket.IO over standard WebSockets for built-in broadcasting and connection fallback support."
+      pattern: "Client-Server / MVC",
+      dataFlow: "JavaFX Controllers -> Socket Client -> Socket Server -> Game Logic",
+      keyDecisions: "Used raw Java Sockets for custom binary communication protocols between the client and server."
     }
   }
 ];

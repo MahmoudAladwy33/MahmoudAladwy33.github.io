@@ -40,7 +40,7 @@ function renderProjects() {
     card.className = "project-card";
     card.innerHTML = `
       <div class="project-image-wrapper">
-        <span class="project-platform-badge">${project.category === 'ios' ? 'iOS Native' : 'Flutter'}</span>
+        <span class="project-platform-badge">${project.category === 'ios' ? 'iOS Native' : project.category === 'android' ? 'Android Native' : project.category === 'desktop' ? 'Java Desktop' : 'Flutter'}</span>
         <img src="${project.coverImage}" alt="${project.title}" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'220\\' style=\\'background:%231E293B\\'></svg>'">
       </div>
       <div class="project-content">
