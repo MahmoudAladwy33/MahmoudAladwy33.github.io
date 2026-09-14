@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahmoud Mohamed Aladwy — Native iOS Developer</title>
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mahmoudaladwy33.github.io/" />
+  <meta property="og:title" content="Mahmoud Mohamed Aladwy — Native iOS Developer" />
+  <meta property="og:description" content="Specialized in Mobile Applications, Clean Architecture & AI." />
+  <meta property="og:image" content="https://mahmoudaladwy33.github.io/assets/og-preview.png" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="800" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem;">MA.</div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/MahmoudAladwy33" target="_blank">GitHub</a>
+      <button id="themeToggle" class="theme-toggle">☀️</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="assets/profile.jpg" alt="Mahmoud Mohamed Aladwy" class="hero-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'150\\' height=\\'150\\' style=\\'background:%23293241\\'></svg>'">
+    <h1>Mahmoud M. Aladwy</h1>
+    <h2>Native iOS Developer & Software Engineer</h2>
+    <p style="margin-top: 1rem; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">
+      Experienced in building scalable iOS applications with Swift, SwiftUI, and Clean Architecture. Passionate about delivering smooth user experiences and robust code.
+    </p>
+    <div class="hero-actions">
+      <a href="assets/cv/Mahmoud_Mohamed_CV.pdf" download class="btn btn-primary">Download Resume (PDF)</a>
+      <a href="https://linkedin.com/in/mahmoudAladwy" target="_blank" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="projects-header">
+      <h2>Featured Engineering Work</h2>
+      <p style="color: var(--text-muted);">A showcase of my recent production-grade applications.</p>
+    </div>
+    
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
+      <button class="filter-btn" data-filter="mobile" onclick="setFilter('mobile')">iOS / Mobile</button>
+    </div>
+
+    <div id="projectsGrid" class="projects-grid">
+      <!-- Injected by app.js -->
+    </div>
+
+    <div class="toggle-projects-container">
+      <button id="btnToggleProjects" class="btn btn-outline" onclick="toggleProjectsExpansion()">
+        <span>Show All Projects</span> ↓
+      </button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Let's Build Something</h2>
+    <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Reach out for opportunities or just to say hi.</p>
+    
+    <form id="contactForm" class="contact-form">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Your Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Your Email" required>
+      </div>
+      <div class="form-group">
+        <textarea id="message" rows="5" placeholder="How can I help you?" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+      <div id="formStatusMsg" class="form-status-msg"></div>
+    </form>
+  </section>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+      <div id="modalBody">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Mahmoud Mohamed Aladwy. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; color: var(--border-glass);">Based in Cairo, Egypt</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data/projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
