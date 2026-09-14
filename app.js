@@ -1,4 +1,4 @@
-// Initialize Theme
+// --- Theme Management ---
 function initTheme() {
   const saved = localStorage.getItem("portfolio-theme") || "dark";
   document.documentElement.setAttribute("data-theme", saved);
@@ -6,62 +6,76 @@ function initTheme() {
 }
 
 function toggleTheme() {
-  const current = document.documentElement.getAttribute("data-theme") || "dark";
-  const target = current === "dark" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", target);
-  localStorage.setItem("portfolio-theme", target);
-  updateThemeIcon(target);
+  const current = document.documentElement.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem("portfolio-theme", next);
+  updateThemeIcon(next);
 }
 
 function updateThemeIcon(theme) {
   const btn = document.getElementById("themeToggle");
-  if (btn) btn.textContent = theme === "dark" ? "☀️" : "🌙";
+  if (btn) {
+    btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
+  }
 }
 
-// Project Rendering
+document.getElementById("themeToggle")?.addEventListener("click", toggleTheme);
+initTheme();
+
+// --- Projects Rendering & Filtering ---
 let isExpanded = false;
-let currentFilter = "all";
-
-function createProjectCardHtml(proj) {
-  return `
-    <div class="project-card">
-      <img src="${proj.coverImage}" alt="${proj.title}" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'200\\' style=\\'background:%23293241\\'></svg>'">
-      <div class="project-content">
-        <div class="project-badges">
-          ${proj.badges.map(b => `<span class="badge">${b}</span>`).join("")}
-        </div>
-        <h3 class="project-title" style="color: ${proj.themeColor}">${proj.title}</h3>
-        <p class="project-tagline">${proj.tagline}</p>
-        <div class="project-actions">
-          <button class="btn btn-primary" onclick="openProjectModal('${proj.id}')">Deep Dive</button>
-          <a href="${proj.githubUrl}" target="_blank" class="btn btn-outline">GitHub</a>
-        </div>
-      </div>
-    </div>
-  `;
-}
+let currentFilter = 'all';
 
 function renderProjects() {
   const grid = document.getElementById("projectsGrid");
-  const toggleBtn = document.getElementById("btnToggleProjects");
-  
   if (!grid) return;
+  grid.innerHTML = "";
 
-  const filtered = window.PROJECTS_DATA.filter(p => currentFilter === "all" || p.category === currentFilter);
-  const toDisplay = (currentFilter === "all" && !isExpanded) ? filtered.slice(0, 3) : filtered;
+  const filtered = PROJECTS_DATA.filter(p => currentFilter === 'all' || p.category === currentFilter);
+  const projectsToShow = isExpanded ? filtered : filtered.filter(p => p.featured);
 
-  grid.innerHTML = toDisplay.map(proj => createProjectCardHtml(proj)).join("");
-
+  projectsToShow.forEach(project => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.innerHTML = `
+      <div class="project-image-wrapper">
+        <span class="project-platform-badge">${project.category === 'ios' ? 'iOS Native' : 'Flutter'}</span>
+        <img src="${project.coverImage}" alt="${project.title}" class="project-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'220\\' style=\\'background:%231E293B\\'></svg>'">
+      </div>
+      <div class="project-content">
+        <h3 class="project-title">${project.title}</h3>
+        <p class="project-tagline">${project.tagline}</p>
+        <div class="project-badges">
+          ${project.badges.map(b => `<span class="badge">${b}</span>`).join('')}
+        </div>
+        <div class="project-actions">
+          <a href="${project.githubUrl}" target="_blank" class="link-github">GitHub ↗</a>
+          <button class="btn-deepdive" onclick="openProjectModal('${project.id}')">Deep Dive 🔍</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  
+  const toggleBtn = document.getElementById("btnToggleProjects");
   if (toggleBtn) {
-    if (filtered.length <= 3 && currentFilter === "all") {
+    if (filtered.length <= 3) {
       toggleBtn.style.display = "none";
     } else {
-      toggleBtn.style.display = "inline-block";
-      toggleBtn.innerHTML = isExpanded 
-        ? `<span>Show Less (Top 3)</span> ↑`
-        : `<span>Show All Projects (${filtered.length})</span> ↓`;
+      toggleBtn.style.display = "inline-flex";
+      toggleBtn.innerHTML = isExpanded ? "<span>Show Less</span> ↑" : `<span>Show All Projects (${filtered.length})</span> ↓`;
     }
   }
+}
+
+function setFilter(category) {
+  currentFilter = category;
+  isExpanded = false; // reset expansion on filter change
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-filter') === category);
+  });
+  renderProjects();
 }
 
 function toggleProjectsExpansion() {
@@ -69,111 +83,70 @@ function toggleProjectsExpansion() {
   renderProjects();
 }
 
-function setFilter(category) {
-  currentFilter = category;
-  isExpanded = true; // Auto expand when filtering
-  
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.filter === category);
-  });
-  
-  renderProjects();
-}
+// --- Modal Logic ---
+function openProjectModal(projectId) {
+  const project = PROJECTS_DATA.find(p => p.id === projectId);
+  if (!project) return;
 
-// Modal Logic
-function openProjectModal(id) {
-  const proj = window.PROJECTS_DATA.find(p => p.id === id);
-  if (!proj) return;
+  document.getElementById("modalTitle").innerText = project.title;
+  document.getElementById("modalTagline").innerText = project.tagline;
 
-  const modal = document.getElementById('projectModal');
-  const modalBody = document.getElementById('modalBody');
+  const highlightsHtml = project.keyHighlights.map(h => `<li>${h}</li>`).join('');
+  const techStackHtml = project.techStack.map(t => `<span class="badge">${t}</span>`).join('');
+  const videoHtml = project.videoUrl ? `
+    <div class="modal-section">
+      <video width="100%" controls style="border-radius: 12px; border: 1px solid var(--border-color); background: #000;">
+        <source src="${project.videoUrl}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  ` : '';
 
-  modalBody.innerHTML = `
-    <div class="modal-header">
-      <h3 style="color: ${proj.themeColor}">${proj.title}</h3>
-      <p class="project-tagline">${proj.tagline}</p>
+  document.getElementById("modalBody").innerHTML = `
+    ${videoHtml}
+    <div class="modal-section">
+      <h4>Overview & Problem Solved</h4>
+      <p>${project.overview}</p>
     </div>
     
     <div class="modal-section">
-      <h4>Summary</h4>
-      <p style="color: var(--text-muted)">${proj.summary}</p>
+      <h4>Key Engineering Highlights</h4>
+      <ul>${highlightsHtml}</ul>
     </div>
-
-    <div class="modal-section">
-      <h4>Key Highlights</h4>
-      <ul>
-        ${proj.highlights.map(h => `<li>${h}</li>`).join("")}
-      </ul>
-    </div>
-
-    <div class="modal-section">
-      <h4>Architecture & Engineering</h4>
-      <p><strong>Pattern:</strong> <span style="color: var(--text-muted)">${proj.architecture.pattern}</span></p>
-      <p><strong>Layers:</strong> <span style="color: var(--text-muted)">${proj.architecture.layers}</span></p>
-      <p><strong>Key Decisions:</strong> <span style="color: var(--text-muted)">${proj.architecture.keyDecisions}</span></p>
+    
+    <div class="arch-box">
+      <h4>System Architecture & Decisions</h4>
+      <p><strong>Pattern:</strong> ${project.architecture.pattern}</p>
+      <p><strong>Data Flow:</strong> <span class="flow">${project.architecture.dataFlow}</span></p>
+      <p><strong>Key Technical Decisions:</strong></p>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem;">${project.architecture.keyDecisions}</p>
     </div>
     
     <div class="modal-section">
-      <h4>Full Tech Stack</h4>
-      <div class="project-badges" style="margin-top: 0.5rem">
-        ${proj.techStack.map(t => `<span class="badge">${t}</span>`).join("")}
+      <h4>Complete Tech Stack</h4>
+      <div class="project-badges" style="margin-top: 0.5rem;">
+        ${techStackHtml}
       </div>
     </div>
     
-    <div class="modal-section" style="text-align: right;">
-       <a href="${proj.githubUrl}" target="_blank" class="btn btn-outline">View Repository</a>
+    <div style="margin-top: 1rem;">
+      <a href="${project.githubUrl}" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">Explore GitHub Repository ↗</a>
     </div>
   `;
 
-  modal.classList.add('active');
+  document.getElementById("projectModal").classList.add("active");
+  document.body.style.overflow = "hidden"; // Prevent background scrolling
 }
 
 function closeProjectModal() {
-  document.getElementById('projectModal').classList.remove('active');
+  document.getElementById("projectModal").classList.remove("active");
+  document.body.style.overflow = "auto";
 }
 
-// Contact Form
-async function handleContactSubmit(event) {
-  event.preventDefault();
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-  const statusMsg = document.getElementById("formStatusMsg");
+// Initial render
+document.addEventListener('DOMContentLoaded', renderProjects);
 
-  statusMsg.className = "form-status-msg";
-  statusMsg.textContent = "Sending...";
-
-  try {
-    const res = await fetch("https://formsubmit.co/ajax/mahmoudaladwy774@gmail.com", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({ name, email, message, _subject: `Portfolio Inquiry from ${name}` })
-    });
-
-    if (res.ok) {
-      statusMsg.className = "form-status-msg success";
-      statusMsg.textContent = "✓ Message sent successfully! Delivered directly to my inbox.";
-      document.getElementById("contactForm").reset();
-    } else {
-      throw new Error("API Error");
-    }
-  } catch (err) {
-    statusMsg.textContent = "Redirecting to your mail client...";
-    window.location.href = `mailto:mahmoudaladwy774@gmail.com?subject=Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}`;
-  }
-}
-
-// Initialization
-document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  
-  if (window.PROJECTS_DATA) {
-    renderProjects();
-  }
-  
-  const themeBtn = document.getElementById("themeToggle");
-  if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
-
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) contactForm.addEventListener("submit", handleContactSubmit);
+// Close modal on outside click
+document.getElementById('projectModal')?.addEventListener('click', (e) => {
+  if(e.target.id === 'projectModal') closeProjectModal();
 });

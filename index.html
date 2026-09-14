@@ -3,112 +3,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mahmoud Mohamed Aladwy — Native iOS Developer</title>
+  <title>Mahmoud Aladwy — Mobile Software Engineer</title>
   
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mahmoudaladwy33.github.io/" />
-  <meta property="og:title" content="Mahmoud Mohamed Aladwy — Native iOS Developer" />
-  <meta property="og:description" content="Specialized in Mobile Applications, Clean Architecture & AI." />
-  <meta property="og:image" content="https://mahmoudaladwy33.github.io/assets/og-preview.png" />
-  <meta property="og:image:width" content="800" />
-  <meta property="og:image:height" content="800" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation -->
   <nav>
-    <div class="logo" style="font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem;">MA.</div>
+    <div class="logo"><span class="logo-icon">MA</span> Mahmoud Aladwy</div>
     <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <a href="https://github.com/MahmoudAladwy33" target="_blank">GitHub</a>
+      <a href="#cvs">Resume</a>
       <button id="themeToggle" class="theme-toggle">☀️</button>
+      <div class="open-roles-badge"><div class="dot"></div> Open to Roles</div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <header class="hero">
-    <img src="assets/profile.jpg" alt="Mahmoud Mohamed Aladwy" class="hero-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'150\\' height=\\'150\\' style=\\'background:%23293241\\'></svg>'">
-    <h1>Mahmoud M. Aladwy</h1>
-    <h2>Native iOS Developer & Software Engineer</h2>
-    <p style="margin-top: 1rem; color: var(--text-muted); max-width: 600px; margin-left: auto; margin-right: auto;">
-      Experienced in building scalable iOS applications with Swift, SwiftUI, and Clean Architecture. Passionate about delivering smooth user experiences and robust code.
+    <div class="avatar-container">
+      <div class="avatar-ring"></div>
+      <img src="assets/profile.jpg" alt="Mahmoud Aladwy" class="hero-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'140\\' height=\\'140\\' style=\\'background:%23131A2A\\'></svg>'">
+    </div>
+    
+    <div class="hero-subtitle">⚡ Mobile Applications Engineer • Native iOS & Flutter</div>
+    
+    <h1>Building Scalable, Clean & <br><span>High-Performance</span> Mobile Apps.</h1>
+    
+    <p class="hero-bio">
+      Hi, I'm <strong>Mahmoud Aladwy</strong>. I engineer production-grade mobile applications specializing in <strong>Native iOS (Swift & SwiftUI)</strong> and <strong>Cross-Platform (Flutter & Dart)</strong>, with a focus on Clean Architecture, offline persistence, and seamless user experiences.
     </p>
+
+    <div class="hero-socials">
+      <a href="mailto:mahmoudaladwy774@gmail.com" class="social-btn">✉️ Email Me</a>
+      <a href="https://linkedin.com/in/mahmoudAladwy" target="_blank" class="social-btn">💼 LinkedIn</a>
+      <a href="https://github.com/MahmoudAladwy33" target="_blank" class="social-btn">🐙 GitHub</a>
+      <a href="tel:+201096032855" class="social-btn">📞 +20 109 603 2855</a>
+    </div>
+
     <div class="hero-actions">
-      <a href="assets/cv/Mahmoud_Mohamed_CV.pdf" download class="btn btn-primary">Download Resume (PDF)</a>
-      <a href="https://linkedin.com/in/mahmoudAladwy" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="#projects" class="btn btn-primary">Explore Projects ↓</a>
+      <a href="#cvs" class="btn btn-outline">View CVs 📄</a>
     </div>
   </header>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="projects-header">
-      <h2>Featured Engineering Work</h2>
-      <p style="color: var(--text-muted);">A showcase of my recent production-grade applications.</p>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>10+</h3>
+      <p>Completed Projects</p>
+    </div>
+    <div class="stat-card">
+      <h3>9-Month</h3>
+      <p>ITI Professional Diploma</p>
+    </div>
+    <div class="stat-card">
+      <h3>Honors</h3>
+      <p>B.Sc. Computer Science</p>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="section-header">
+      <h2>About & Engineering Philosophy</h2>
+      <p>A blend of academic rigor, modern mobile architecture, and scalable design.</p>
+    </div>
+    <div class="about-card">
+      <p>I am a mobile software engineer with deep expertise in <strong>Swift, SwiftUI, Combine, and Clean Architecture (MVVM/VIPER)</strong>. Having graduated from the intensive <strong>9-Month Professional Mobile Development Program at the Information Technology Institute (ITI)</strong> and holding a <strong>B.Sc. in Computer Science with Honors</strong>, I build mobile applications with a deep understanding of memory management, offline persistence, and UI performance.</p>
+      <br>
+      <p>Beyond native iOS, I develop robust cross-platform applications in <strong>Flutter (BLoC/Cubit)</strong>. I actively integrate AI capabilities (Google Gemini), robust backend APIs, and modern data caching strategies (Core Data, SwiftData, Room) to deliver complete, end-to-end digital solutions.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-header">
+      <h2>Technical Skills & Tooling</h2>
+      <p>Verified proficiencies and architectural patterns applied across mobile codebases.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-column">
+        <div class="skill-column-header">🍎 iOS Native Ecosystem</div>
+        <div class="skill-list">
+          <span class="skill-tag">Swift</span>
+          <span class="skill-tag">Objective-C</span>
+          <span class="skill-tag">SwiftUI</span>
+          <span class="skill-tag">UIKit / AutoLayout</span>
+          <span class="skill-tag">Clean Architecture</span>
+          <span class="skill-tag">MVVM-C / VIPER</span>
+          <span class="skill-tag">Combine / RxSwift</span>
+          <span class="skill-tag">Core Data</span>
+          <span class="skill-tag">SwiftData</span>
+          <span class="skill-tag">Swinject (DI)</span>
+          <span class="skill-tag">XCTest</span>
+        </div>
+      </div>
+      <div class="skill-column">
+        <div class="skill-column-header">📱 Cross-Platform (Flutter)</div>
+        <div class="skill-list">
+          <span class="skill-tag">Flutter</span>
+          <span class="skill-tag">Dart</span>
+          <span class="skill-tag">BLoC Pattern</span>
+          <span class="skill-tag">Cubit</span>
+          <span class="skill-tag">Dio & Interceptors</span>
+          <span class="skill-tag">GetIt (Locator)</span>
+          <span class="skill-tag">sqflite</span>
+          <span class="skill-tag">Firebase</span>
+        </div>
+      </div>
+      <div class="skill-column">
+        <div class="skill-column-header">⚙️ Backend, APIs & Tools</div>
+        <div class="skill-list">
+          <span class="skill-tag">GraphQL (Apollo)</span>
+          <span class="skill-tag">RESTful APIs</span>
+          <span class="skill-tag">Alamofire / URLSession</span>
+          <span class="skill-tag">WebSockets</span>
+          <span class="skill-tag">Gemini AI SDK</span>
+          <span class="skill-tag">Stripe / Apple Pay</span>
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">Postman / Apidog</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+      <p>Real-world mobile applications engineered with clean architecture and modern design patterns.</p>
     </div>
     
     <div class="filters">
-      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All</button>
-      <button class="filter-btn" data-filter="mobile" onclick="setFilter('mobile')">iOS / Mobile</button>
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">All Projects</button>
+      <button class="filter-btn" data-filter="ios" onclick="setFilter('ios')">iOS Native (Swift)</button>
+      <button class="filter-btn" data-filter="flutter" onclick="setFilter('flutter')">Cross-Platform (Flutter)</button>
     </div>
 
     <div id="projectsGrid" class="projects-grid">
       <!-- Injected by app.js -->
     </div>
 
-    <div class="toggle-projects-container">
+    <div style="text-align: center; margin-top: 3rem;">
       <button id="btnToggleProjects" class="btn btn-outline" onclick="toggleProjectsExpansion()">
         <span>Show All Projects</span> ↓
       </button>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Let's Build Something</h2>
-    <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">Reach out for opportunities or just to say hi.</p>
+  <section id="cvs">
+    <div class="section-header">
+      <h2>Resume & Tailored CVs</h2>
+      <p>Download official 1-page resumes tailored for target roles.</p>
+    </div>
     
-    <form id="contactForm" class="contact-form">
-      <div class="form-group">
-        <input type="text" id="name" placeholder="Your Name" required>
+    <div class="cv-grid">
+      <div class="cv-card">
+        <div class="cv-icon">🍎</div>
+        <h3>iOS Developer CV</h3>
+        <p>Focusing on Swift, SwiftUI, Clean Architecture (MVVM/VIPER), Combine, Core Data, and AI SDK integrations.</p>
+        <div class="cv-actions">
+          <a href="assets/cv/Mahmoud_Mohamed_CV.pdf" target="_blank" class="btn btn-outline">Preview</a>
+          <a href="assets/cv/Mahmoud_Mohamed_CV.pdf" download class="btn btn-primary">Download PDF</a>
+        </div>
       </div>
-      <div class="form-group">
-        <input type="email" id="email" placeholder="Your Email" required>
+      
+      <div class="cv-card">
+        <div class="cv-icon">💙</div>
+        <h3>Flutter Developer CV</h3>
+        <p>Focusing on Flutter, Dart, BLoC/Cubit, Clean Architecture, REST API integrations (Dio), and Firebase Suite.</p>
+        <div class="cv-actions">
+          <a href="assets/cv/Flutter_CV.pdf" target="_blank" class="btn btn-outline">Preview</a>
+          <a href="assets/cv/Flutter_CV.pdf" download class="btn btn-primary">Download PDF</a>
+        </div>
       </div>
-      <div class="form-group">
-        <textarea id="message" rows="5" placeholder="How can I help you?" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send Message</button>
-      <div id="formStatusMsg" class="form-status-msg"></div>
-    </form>
+    </div>
   </section>
 
-  <!-- Project Modal -->
+  <section class="contact">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <h2>Let's Connect</h2>
+      <p>Available for mobile engineering roles and technical collaborations.</p>
+    </div>
+    <a href="mailto:mahmoudaladwy774@gmail.com" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Send a Quick Message ✉️</a>
+  </section>
+
+  <!-- Project Deep Dive Modal -->
   <div id="projectModal" class="modal-overlay">
     <div class="modal-content">
-      <button class="modal-close" onclick="closeProjectModal()">&times;</button>
-      <div id="modalBody">
+      <div class="modal-header">
+        <div>
+          <h2 id="modalTitle">Project Title</h2>
+          <p id="modalTagline">Tagline goes here</p>
+        </div>
+        <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
         <!-- Injected dynamically -->
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Mahmoud Mohamed Aladwy. All rights reserved.</p>
-    <p style="margin-top: 0.5rem; color: var(--border-glass);">Based in Cairo, Egypt</p>
+  <footer style="text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-tertiary); font-size: 0.9rem;">
+    <p>&copy; 2026 Mahmoud Aladwy. Engineered with Clean Architecture principles.</p>
   </footer>
 
-  <!-- Scripts -->
   <script src="data/projects.js"></script>
   <script src="app.js"></script>
 </body>
