@@ -107,7 +107,7 @@ var PROJECTS_DATA = [
     architecture: {
       pattern: "BLoC Pattern",
       dataFlow: "UI -> BLoC -> Audio Service -> ML API",
-      keyDecisions": "Offloaded complex audio inference to a dedicated Python backend to preserve mobile battery life."
+      keyDecisions: "Offloaded complex audio inference to a dedicated Python backend to preserve mobile battery life."
     }
   },
   {

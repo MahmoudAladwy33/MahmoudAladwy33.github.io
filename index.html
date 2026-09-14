@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mahmoud Aladwy — Mobile Software Engineer</title>
+  <link rel="icon" href="assets/profile.jpg" type="image/jpeg">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +14,7 @@
 <body>
 
   <nav>
-    <div class="logo"><span class="logo-icon">MA</span> Mahmoud Aladwy</div>
+    <div class="logo">Mahmoud Aladwy</div>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -158,7 +159,7 @@
       <p>Download official 1-page resumes tailored for target roles.</p>
     </div>
     
-    <div class="cv-grid">
+    <div class="cv-grid" style="grid-template-columns: 1fr; max-width: 500px;">
       <div class="cv-card">
         <div class="cv-icon">🍎</div>
         <h3>iOS Developer CV</h3>
@@ -168,25 +169,29 @@
           <a href="assets/cv/Mahmoud_Mohamed_CV.pdf" download class="btn btn-primary">Download PDF</a>
         </div>
       </div>
-      
-      <div class="cv-card">
-        <div class="cv-icon">💙</div>
-        <h3>Flutter Developer CV</h3>
-        <p>Focusing on Flutter, Dart, BLoC/Cubit, Clean Architecture, REST API integrations (Dio), and Firebase Suite.</p>
-        <div class="cv-actions">
-          <a href="assets/cv/Flutter_CV.pdf" target="_blank" class="btn btn-outline">Preview</a>
-          <a href="assets/cv/Flutter_CV.pdf" download class="btn btn-primary">Download PDF</a>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section class="contact">
+  <section class="contact" id="contact">
     <div class="section-header" style="margin-bottom: 2rem;">
       <h2>Let's Connect</h2>
       <p>Available for mobile engineering roles and technical collaborations.</p>
     </div>
-    <a href="mailto:mahmoudaladwy774@gmail.com" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Send a Quick Message ✉️</a>
+    <form class="contact-form" action="mailto:mahmoudaladwy774@gmail.com" method="POST" enctype="text/plain">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="john@example.com">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Hello Mahmoud, I'd like to discuss..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message ✉️</button>
+    </form>
   </section>
 
   <!-- Project Deep Dive Modal -->

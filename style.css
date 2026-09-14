@@ -184,6 +184,11 @@ section { padding: 5rem 5%; max-width: 1200px; margin: 0 auto; }
 
 /* Contact Section simple */
 .contact { text-align: center; padding-bottom: 6rem; }
+.contact-form { max-width: 600px; margin: 0 auto; background: var(--bg-surface); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border-color); text-align: left; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-primary); font-weight: 500; font-size: 0.95rem; }
+.form-group input, .form-group textarea { width: 100%; padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-primary); font-family: var(--font-body); font-size: 1rem; transition: border-color 0.3s; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-main); }
 
 @media(max-width: 768px) {
   .hero h1 { font-size: 2.5rem; }
