@@ -28,20 +28,20 @@ var PROJECTS_DATA = [
     tagline: "Modular e-commerce iOS app with GraphQL",
     category: "ios",
     featured: true,
-    badges: ["Swift", "MVVM-C", "GraphQL"],
+    badges: ["Swift", "GraphQL", "MVVM-C"],
     githubUrl: "https://github.com/Shopify-iOS-WorkShop/Shopify",
     coverImage: "assets/projects/shopify-ios/1784056262868.jpg",
-    techStack: ["Swift", "SwiftUI", "MVVM-C (Coordinator)", "GraphQL (Apollo)", "Firebase", "Stripe", "Apple Pay", "SwiftData"],
-    overview: "A custom, high-performance Shopify storefront built natively for iOS. It leverages Apollo GraphQL for efficient data fetching and features AI-powered shopping assistance.",
+    techStack: ["Swift", "SwiftUI", "MVVM-C (Coordinator)", "GraphQL (Apollo)", "Firebase", "Stripe", "Apple Pay", "SwiftData", "Swinject", "Lottie"],
+    overview: "A production-ready Shopify iOS e-commerce application backed by Shopify's Storefront & Admin GraphQL APIs. It features an Agentic RAG Pipeline with a custom AI Assistant powering Smart Chat, Product Comparison, Image Search, and Outfit Generation.",
     keyHighlights: [
-      "Architected real-time Shopify Storefront GraphQL query pipeline.",
-      "Integrated Stripe and Apple Pay for secure checkout flows.",
-      "Utilized MVVM-C for clean navigation and state management."
+      "Engineered a Highly Modular Ecosystem with independent Swift Packages (SPM) and Swinject DI.",
+      "Implemented State-of-the-Art Navigation using the Coordinator Pattern for stateless SwiftUI flows.",
+      "Integrated a custom, actor-based AI Assistant powering multiple intelligent features."
     ],
     architecture: {
-      pattern: "MVVM-C (Coordinator)",
-      dataFlow: "UI -> ViewModel -> Coordinator -> Apollo Client -> Shopify GraphQL",
-      keyDecisions: "Adopted the Coordinator pattern for decoupled navigation and SwiftData for fast local caching."
+      pattern: "MVVM-C (Coordinator) & Clean Architecture",
+      dataFlow: "Decentralized SPM Modules -> Swinject DI -> Coordinator -> UI",
+      keyDecisions: "Decoupled the codebase via independent Swift Packages and adopted the Coordinator Pattern to keep SwiftUI views fully stateless."
     }
   },
   {
@@ -50,42 +50,42 @@ var PROJECTS_DATA = [
     tagline: "Premium sports app with live tracking",
     category: "ios",
     featured: true,
-    badges: ["Swift", "UIKit", "RxSwift"],
+    badges: ["Swift", "UIKit", "MVP"],
     githubUrl: "https://github.com/MahmoudAladwy33/Sport-App",
     coverImage: "assets/projects/sportmob/459shots_so.png",
-    techStack: ["Swift", "UIKit", "RxSwift", "Alamofire", "MVP", "Core Data", "REST APIs", "XCTest"],
-    overview: "A premium UIKit sports application featuring live data tracking, complete multilingual support, and offline persistence.",
+    techStack: ["Swift", "UIKit", "RxSwift", "MVP", "Alamofire", "Core Data", "XCTest", "SDWebImage"],
+    overview: "A premium UIKit sports application built from scratch for tracking Football, Basketball, Tennis, and Cricket. It features dynamic grid layouts, live sports data, and full English/Arabic localization.",
     keyHighlights: [
-      "Implemented complete multilingual support and dynamic UI scaling.",
-      "Architected with a decoupled MVP pattern for maximum testability.",
-      "Ensured robust code quality with comprehensive XCTest suites."
+      "Developed custom Teams Tracker and League Details screens with dynamic horizontal/vertical scrolling.",
+      "Utilized UICollectionViewCompositionalLayout for modern, dynamic grid layouts.",
+      "Implemented comprehensive Unit Testing to ensure a robust and decoupled codebase."
     ],
     architecture: {
       pattern: "MVP (Model-View-Presenter)",
-      dataFlow: "View (UIKit) -> Presenter -> Model (Repository/CoreData)",
-      keyDecisions: "Used RxSwift for reactive bindings and Core Data to ensure the app works flawlessly offline."
+      dataFlow: "View (UIKit) -> Presenter (RxSwift) -> Network (Alamofire) / Local (Core Data)",
+      keyDecisions: "Adopted MVP architecture coupled with RxSwift for reactive streams and asynchronous data binding to maintain clean UI layers."
     }
   },
   {
     id: "eventhub",
-    title: "EventHub",
-    tagline: "Discover and manage events seamlessly",
+    title: "Event Hub",
+    tagline: "Clean, scalable event management",
     category: "flutter",
     featured: false,
-    badges: ["Flutter", "BLoC", "Retrofit"],
+    badges: ["Flutter", "BLoC", "Clean Arch"],
     githubUrl: "https://github.com/MahmoudAladwy33/EventHub",
     coverImage: "assets/projects/eventhub/813shots_so.png",
-    techStack: ["Flutter", "Dart", "BLoC", "Dio", "Retrofit"],
-    overview: "A Flutter-based event management application designed to help users discover, book, and organize events.",
+    techStack: ["Flutter", "Dart", "BLoC", "GetIt", "Dio", "Retrofit", "GoRouter", "Freezed", "Sqflite"],
+    overview: "Event Hub is a Flutter application built with a strong focus on clean architecture, scalability, and maintainability. It features map integrations, localization, and a responsive UI.",
     keyHighlights: [
-      "Architected a scalable event discovery engine.",
-      "Integrated remote API data fetching via Dio and Retrofit.",
-      "Implemented a seamless state management flow using BLoC."
+      "Integrated Maps and robust location services for accurate event discovery.",
+      "Utilized Freezed & JSON Serializable for generating immutable models.",
+      "Ensured a highly responsive UI across devices using ScreenUtil."
     ],
     architecture: {
       pattern: "Clean Architecture / BLoC",
-      dataFlow: "UI -> BLoC -> Repository -> Network (Dio/Retrofit)",
-      keyDecisions: "Adopted BLoC for predictable state management and Retrofit for type-safe API calls."
+      dataFlow: "UI -> BLoC -> GetIt (DI) -> Retrofit/Sqflite",
+      keyDecisions: "Leveraged GetIt for decoupled Dependency Injection and GoRouter for robust declarative navigation."
     }
   },
   {
@@ -94,41 +94,42 @@ var PROJECTS_DATA = [
     tagline: "AI-powered infant cry analysis",
     category: "flutter",
     featured: false,
-    badges: ["Flutter", "BLoC", "Firebase"],
+    badges: ["Flutter", "AI/ML", "Node.js"],
     githubUrl: "https://github.com/Advanced-Infant-Care-Technology/Flutter",
     coverImage: "assets/projects/carenest/WhatsApp Image 2026-09-14 at 10.43.54 (1).jpeg",
-    techStack: ["Flutter", "Dart", "BLoC", "Firebase", "Dio", "Retrofit"],
-    overview: "A Flutter-based healthcare application leveraging Firebase and custom APIs for infant care management.",
+    techStack: ["Flutter", "Dart", "BLoC", "Firebase", "Node.js", "Express", "Dio", "Retrofit"],
+    overview: "CareNest is a capstone mobile app designed to empower new mothers by turning every baby's cry into actionable insights. It features AI cry analysis, growth tracking, a local care finder, and a smart EN/AR chatbot.",
     keyHighlights: [
-      "Built a cross-platform mobile interface using Flutter.",
-      "Integrated Firebase for real-time data sync and authentication.",
-      "Developed robust remote networking layer using Dio."
+      "Engineered an AI cry analysis engine capable of detecting hunger, fatigue, discomfort, and colic.",
+      "Developed a custom Node.js + Express backend hosted on Azure with a Vercel frontend.",
+      "Integrated Firebase for real-time community chat and smart notifications."
     ],
     architecture: {
-      pattern: "BLoC Pattern",
-      dataFlow: "UI -> BLoC -> Repository -> API/Firebase",
-      keyDecisions: "Decoupled the presentation layer using BLoC to ensure scalability."
+      pattern: "Clean Architecture / BLoC",
+      dataFlow: "UI -> Bloc/Cubit -> get_it -> Dio Client -> Azure Node.js Backend",
+      keyDecisions: "Invested heavily in a decoupled UI and modular code, using fl_chart for complex growth graphs and go_router for navigation."
     }
   },
   {
     id: "ghyom-ios",
     title: "Ghyom iOS",
-    tagline: "Accurate weather forecasting at your fingertips",
+    tagline: "Dynamic SwiftUI weather application",
     category: "ios",
     featured: false,
-    badges: ["Swift", "UIKit/SwiftUI"],
+    badges: ["SwiftUI", "MVVM", "SwiftData"],
     githubUrl: "https://github.com/MahmoudAladwy33/Ghyom_IOS",
     coverImage: "assets/projects/ghyom-ios/736shots_so.png",
-    techStack: ["Swift", "UIKit", "SwiftUI"],
-    overview: "A native iOS application providing weather updates and forecasts.",
+    techStack: ["Swift", "SwiftUI", "MVVM", "Alamofire", "SwiftData", "Core Location"],
+    overview: "Ghyom (غيوم) is a weather application built purely with SwiftUI. It delivers a smooth, localized, and weather-aware experience featuring a dynamic day/night interface that adapts to real-time conditions.",
     keyHighlights: [
-      "Designed dynamic weather views based on current conditions.",
-      "Structured for future API integration."
+      "Implemented a responsive, debounced search for cities worldwide.",
+      "Utilized Swift Concurrency (async/await) with Alamofire for clean, asynchronous networking.",
+      "Adopted the new Observation framework in SwiftUI for seamless state tracking."
     ],
     architecture: {
-      pattern: "MVC/MVVM",
-      dataFlow: "View -> Controller/ViewModel",
-      keyDecisions: "Native Swift implementation focusing on performance."
+      pattern: "MVVM with Layered Architecture",
+      dataFlow: "SwiftUI View -> ViewModel -> Repository -> Network / Local Storage",
+      keyDecisions: "Kept the ViewModel independent of networking and storage by routing all operations through a Repository layer, ensuring simple testing and high flexibility."
     }
   },
   {
@@ -156,68 +157,68 @@ var PROJECTS_DATA = [
   {
     id: "yummy",
     title: "Yummy",
-    tagline: "Discover delicious recipes and food delivery",
+    tagline: "Complete recipe discovery & meal planner",
     category: "android",
     featured: false,
-    badges: ["Android", "Java", "Room DB"],
+    badges: ["Android", "Java", "MVP"],
     githubUrl: "https://github.com/MahmoudAladwy33/Yummy",
     coverImage: "assets/projects/yummy/WhatsApp Image 2026-09-14 at 10.43.54 (3).jpeg",
-    techStack: ["Java", "Android SDK", "Retrofit", "Room DB", "RxJava3", "Navigation Component"],
-    overview: "A robust native Android recipe and food discovery app utilizing RxJava for reactive programming and Room for local database management.",
+    techStack: ["Java", "Android SDK", "Retrofit", "Room Database", "RxJava", "Firebase", "Material UI"],
+    overview: "Yummy provides a complete cooking experience, from discovering global recipes and exploring categories to planning weekly dishes. It offers a powerful offline-first experience.",
     keyHighlights: [
-      "Architected a scalable native UI using Navigation Component.",
-      "Integrated Room DB with DAOs for local caching of meals.",
-      "Utilized RxJava3 and Retrofit for reactive network calls."
+      "Engineered a Weekly Meal Planner with seamless Firebase synchronization.",
+      "Implemented an offline-first architecture utilizing Room Database for saving favorite meals.",
+      "Integrated Firebase Authentication supporting both Email and Google Sign-In."
     ],
     architecture: {
-      pattern: "MVVM / Repository Pattern",
-      dataFlow: "Fragment -> ViewModel -> Repository -> Room/Retrofit",
-      keyDecisions: "Adopted Room DB and RxJava3 for highly responsive, reactive local caching."
+      pattern: "MVP Architecture",
+      dataFlow: "Activity/Fragment -> Presenter -> Retrofit/Room -> UI Update (RxJava streams)",
+      keyDecisions: "Combined MVP with RxJava for highly responsive UI updates and reliable async data handling from the Room Database."
     }
   },
   {
     id: "ghyom",
     title: "Ghyom",
-    tagline: "Modern Android weather forecasting app",
+    tagline: "Retro Pixel-Art weather tracker",
     category: "android",
     featured: false,
-    badges: ["Kotlin", "Compose", "Koin"],
+    badges: ["Kotlin", "Coroutines", "Koin"],
     githubUrl: "https://github.com/MahmoudAladwy33/Ghyom",
     coverImage: "assets/projects/ghyom/WhatsApp Image 2026-09-14 at 10.43.54 (2).jpeg",
-    techStack: ["Kotlin", "Jetpack Compose", "Koin (DI)", "Retrofit", "Room DB", "Navigation Compose"],
-    overview: "A modern native Android weather application using the latest Jetpack Compose UI toolkit and offline caching via Room.",
+    techStack: ["Kotlin", "MVVM", "Coroutines", "Flow", "Koin (DI)", "Retrofit", "Room", "AlarmManager"],
+    overview: "Ghyom (غُيوم) is an Android project that blends high-precision weather tracking with a unique Retro Pixel-Art aesthetic, featuring scanline effects and digital typography.",
     keyHighlights: [
-      "Built a fully declarative UI with Jetpack Compose.",
-      "Implemented Dependency Injection using Koin.",
-      "Integrated Room DB for offline weather data persistence."
+      "Engineered an Advanced Weather Alerts system using AlarmManager & WorkManager for proactive background monitoring.",
+      "Developed a Smart Location Engine with automatic GPS detection, an interactive Map Picker, and Autocomplete.",
+      "Provided full native RTL (Arabic) and LTR (English) localization support."
     ],
     architecture: {
-      pattern: "MVVM with Clean Architecture",
-      dataFlow: "Compose UI -> ViewModel -> Repository -> Network/Database",
-      keyDecisions: "Adopted Jetpack Compose and Koin for modern, scalable, and highly testable Android development."
+      pattern: "MVVM Architecture",
+      dataFlow: "UI -> ViewModel (Flow) -> Repository -> Retrofit/Room",
+      keyDecisions: "Utilized Kotlin Coroutines & Flow for fluid asynchronous data streams, paired with Koin for lightweight Dependency Injection."
     }
   },
   {
     id: "xo-game",
     title: "XO Game",
-    tagline: "Multiplayer Tic-Tac-Toe with real-time sync",
+    tagline: "Client-Server Tic-Tac-Toe network",
     category: "desktop",
     featured: false,
-    badges: ["JavaFX", "Sockets", "Gaming"],
+    badges: ["JavaFX", "Sockets", "JDBC"],
     githubUrl: "https://github.com/OmarRamadan20/Client-XO-Game",
     coverImage: "assets/projects/xo-game/Screenshot 2026-09-14 at 3.01.36 PM.png",
     videoUrl: "assets/projects/xo-game/WhatsApp Video 2026-09-14 at 10.41.48.mp4",
-    techStack: ["Java", "JavaFX", "Java Sockets (java.net)"],
-    overview: "A real-time multiplayer Tic-Tac-Toe game featuring a JavaFX client and a dedicated Java Server Architecture. It allows players to compete online with low latency synchronization.",
+    techStack: ["Java SE", "JavaFX", "Socket Programming", "Java I/O Streams", "JDBC", "JSON", "Multithreading"],
+    overview: "A complete Client–Server Network Tic-Tac-Toe application. This inaugural ITI project focuses on real-time communication, stability, and clean architecture without relying on modern web frameworks.",
     keyHighlights: [
-      "Architected a real-time game state synchronization engine using raw Sockets.",
-      "Developed a custom multithreaded Java Server.",
-      "Built a responsive desktop GUI utilizing JavaFX."
+      "Engineered robust real-time communication using raw Java Networking and Socket programming.",
+      "Implemented a highly stable Multithreading architecture to handle concurrent multiplayer sessions.",
+      "Integrated JDBC for persistent database connectivity and player records."
     ],
     architecture: {
-      pattern: "Client-Server / MVC",
-      dataFlow: "JavaFX Controllers -> Socket Client -> Socket Server -> Game Logic",
-      keyDecisions: "Used raw Java Sockets for custom binary communication protocols between the client and server."
+      pattern: "Client-Server Architecture",
+      dataFlow: "JavaFX UI -> I/O Streams (JSON) -> Socket Server -> JDBC Database",
+      keyDecisions: "Chose raw Sockets and JSON parsing over high-level frameworks to ensure deep understanding and maximum control over the network pipeline."
     }
   }
 ];
