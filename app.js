@@ -33,7 +33,7 @@ function renderProjects() {
   grid.innerHTML = "";
 
   const filtered = PROJECTS_DATA.filter(p => currentFilter === 'all' || p.category === currentFilter);
-  const projectsToShow = isExpanded ? filtered : filtered.filter(p => p.featured);
+  const projectsToShow = (isExpanded || currentFilter !== 'all') ? filtered : filtered.filter(p => p.featured);
 
   projectsToShow.forEach(project => {
     const card = document.createElement("div");
@@ -60,7 +60,7 @@ function renderProjects() {
   
   const toggleBtn = document.getElementById("btnToggleProjects");
   if (toggleBtn) {
-    if (filtered.length <= 3) {
+    if (currentFilter !== 'all' || filtered.length <= 3) {
       toggleBtn.style.display = "none";
     } else {
       toggleBtn.style.display = "inline-flex";
